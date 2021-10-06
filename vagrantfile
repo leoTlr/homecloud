@@ -1,0 +1,30 @@
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
+
+Vagrant.configure(2) do |config|
+
+  config.vm.define :homecloud do |homecloud|
+
+    homecloud.vm.box = "debian/bullseye64"
+
+    homecloud.vm.hostname = "homecloud.test"
+    homecloud.vm.network :private_network, ip: "192.168.60.2"
+    homecloud.vm.network "forwarded_port", id: "http", guest: 80, host: 2080
+    homecloud.vm.network "forwarded_port", id: "https", guest: 443, host: 20443
+
+    # use insecure key
+    # only for local development env in private network
+    homecloud.ssh.insert_key = false
+
+    # using libvirt provider requires vagrant-libvirtd plugin
+    homecloud.vagrant.plugins = ["vagrant-libvirt"]
+    homecloud.vm.provider :libvirt do |vm|
+      vm.cpus=4
+      vm.memory=4096
+      vm.default_prefix="test_"
+    end
+
+    homecloud.vm.provision "ansible" do |ansible|
+      ansible.playbook = 'playbook.homecloud.yml'
+    end
+  end
+end

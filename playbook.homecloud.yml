@@ -1,5 +1,15 @@
 ---
 
+- name: base requirements
+  hosts: homecloud
+  become: true
+  pre_tasks:
+    - name: Update apt cache if needed
+      apt: update_cache=True cache_valid_time=3600
+  tasks:
+    - name: ensure gpg is there
+      apt: name=gpg state=present
+
 - name: configure platform
   become: true
   hosts: homecloud
@@ -7,4 +17,5 @@
     - name: Update apt cache if needed
       apt: update_cache=True cache_valid_time=3600
   roles:
+    - alvistack.cri_o
     - homecloud_kubernetes

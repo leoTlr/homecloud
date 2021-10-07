@@ -1,0 +1,15 @@
+---
+
+- name: check system time settings
+  command: timedatectl show
+  register: timedatectl
+  changed_when: False
+
+- name: set system RTC to utc
+  command: timedatectl set-local-rtc false
+  when: "'LocalRTC=yes' in timedatectl.stdout_lines"
+
+- name: set correct timezone
+  command: timedatectl set-timezone {{ server_timezone }}
+  when: "not 'Timezone={}'.format(server_timezone) in timedatectl.stdout_lines"
+  

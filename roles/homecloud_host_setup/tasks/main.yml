@@ -3,3 +3,7 @@
 
 - name: base packages
   apt: name=gpg state=present
+
+- name: set timezone
+  import_tasks: time.yml
+  tags: time

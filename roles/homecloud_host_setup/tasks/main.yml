@@ -1,0 +1,5 @@
+---
+# tasks file for homecloud_host_setup
+
+- name: base packages
+  apt: name=gpg state=present

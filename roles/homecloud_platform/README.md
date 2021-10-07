@@ -1,12 +1,13 @@
-kubernetes
+homecloud_platform
 =========
 
-Installs Kubernetes with cri-o container engine for homecloud
+Installs and starts single-node Kubernetes-cluster with docker container engine
 
 Dependencies
 ------------
 
-alvistack.cri_o
+geerlingguy.docker
+geerlingguy.kubernetes
 
 
 License

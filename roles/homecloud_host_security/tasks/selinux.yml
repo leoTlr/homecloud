@@ -1,0 +1,40 @@
+- name: Ensure dependencies for ansible selinux module are installed 
+  apt:
+    name: python3-selinux
+    state: present
+
+- name: Ensure required packages for SELinux are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - selinux-basics
+    - selinux-policy-default
+    - auditd
+
+- name: Ensure AppArmor is not active
+  service:
+    name: apparmor
+    state: stopped
+    enabled: False
+  notify: reboot system
+
+- name: Ensure AppArmor is not installed
+  apt:
+    name: apparmor
+    state: absent
+
+# 'targeted' on debian 10 is policy default with module 'unconfirmed'
+- name: Ensure SELinux is enabled in `targeted` mode.
+  selinux:
+    policy: default
+    state: permissive
+  notify: reboot system
+  tags: sepolicy
+
+- name: Ensure httpd can connect to the network.
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+  when: ansible_selinux.status == 'enabled'

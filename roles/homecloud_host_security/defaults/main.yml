@@ -1,0 +1,9 @@
+---
+# defaults file for roles/security
+
+ssh_port: 22
+
+# apparmor | selinux | None
+# On Debian systems AppArmor should be better supported (developed by Canonical)
+# SELinux install from this role does not work well, would need to adapt policies 
+mac_system: apparmor

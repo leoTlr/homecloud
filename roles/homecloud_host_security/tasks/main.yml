@@ -1,0 +1,38 @@
+---
+# tasks file for roles/security
+
+- name: Install unattended upgrades package.
+  apt:
+    name: unattended-upgrades
+    state: present
+
+- name: Configure the permissions for the messages log.
+  file:
+    path: /var/log/messages
+    owner: root
+    group: root
+    mode: 0600
+
+- import_tasks: selinux.yml
+  tags:
+    - mac
+    - selinux
+  when: "mac_system == 'selinux'"
+
+- import_tasks: apparmor.yml
+  tags:
+    - mac
+    - apparmor
+  when: "mac_system == 'apparmor'"
+
+- import_tasks: ssh.yml
+  tags:
+    - ssh
+
+- import_tasks: fail2ban.yml
+  tags:
+    - fail2ban
+
+- import_tasks: ufw.yml
+  tags:
+    - ufw

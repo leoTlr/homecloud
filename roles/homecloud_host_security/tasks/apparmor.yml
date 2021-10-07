@@ -1,0 +1,17 @@
+---
+
+- name: Ensure required packages for AppArmor are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apparmor
+    - apparmor-profiles
+    - apparmor-utils
+
+
+- name: Ensure AppArmor service is started
+  service:
+    name: apparmor
+    state: started
+    enabled: True

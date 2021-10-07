@@ -7,3 +7,9 @@
 - name: set timezone
   import_tasks: time.yml
   tags: time
+
+- name: basic security configuration
+  import_role:
+    name: homecloud_host_security
+  tags:
+    - security

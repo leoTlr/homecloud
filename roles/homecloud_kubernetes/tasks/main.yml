@@ -1,2 +1,13 @@
 ---
 # tasks file for homecloud_kubernetes
+
+- name: base requirements
+  apt: name=gpg state=present
+
+- name: ensure container engine is installed
+  import_role:
+    name: geerlingguy.docker
+
+- name: ensure kubernetes is running
+  import_role:
+    name: geerlingguy.kubernetes

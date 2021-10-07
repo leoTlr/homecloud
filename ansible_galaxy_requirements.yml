@@ -1,4 +1,4 @@
 ---
 roles:
-  - name: alvistack.cri_o
-    src: "https://github.com/alvistack/ansible-role-cri_o"
+  - name: geerlingguy.docker
+    src: "https://github.com/geerlingguy/ansible-role-docker"

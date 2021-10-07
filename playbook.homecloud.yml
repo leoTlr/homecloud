@@ -18,4 +18,5 @@
       apt: update_cache=True cache_valid_time=3600
   roles:
     - geerlingguy.docker
+    - geerlingguy.kubernetes
     - homecloud_kubernetes

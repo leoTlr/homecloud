@@ -1,4 +1,7 @@
 ---
 roles:
+  - name: geerlingguy.kubernetes
+    src: "https://github.com/geerlingguy/ansible-role-kubernetes"
+
   - name: geerlingguy.docker
     src: "https://github.com/geerlingguy/ansible-role-docker"

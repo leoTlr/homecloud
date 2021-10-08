@@ -2,7 +2,13 @@
 # tasks file for homecloud_host_setup
 
 - name: base packages
-  apt: name=gpg state=present
+  apt: 
+    name: '{{ item }}' 
+    state: present
+  with_items:
+    - gpg
+    - python3
+    - python3-pip
 
 - name: set timezone
   import_tasks: time.yml

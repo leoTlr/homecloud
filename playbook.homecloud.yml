@@ -8,6 +8,8 @@
       apt: update_cache=True cache_valid_time=3600
   roles:
     - homecloud_host_setup
+  tags:
+    - homecloud_host_setup
 
 - name: configure platform
   become: true
@@ -16,6 +18,8 @@
     - name: Update apt cache if needed
       apt: update_cache=True cache_valid_time=3600
   roles:
+    - homecloud_platform
+  tags:
     - homecloud_platform
 
 - name: install website service

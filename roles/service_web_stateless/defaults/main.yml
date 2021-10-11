@@ -4,7 +4,7 @@
 app_name: hello-k8s
 app_state: present
 
-service_namespace: default
+service_namespace: homecloud-services
 
 deployment_namespace: "{{ service_namespace }}"
 deployment_replicas: 1

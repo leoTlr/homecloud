@@ -8,3 +8,11 @@
 - name: ensure kubernetes is running
   import_role:
     name: geerlingguy.kubernetes
+
+- name: ensure namespace for services exists
+  community.kubernetes.k8s:
+    name: '{{ kubernetes_service_namespace }}'
+    api_version: v1
+    kind: Namespace
+    state: present
+

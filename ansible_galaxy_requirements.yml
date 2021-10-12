@@ -5,3 +5,6 @@ roles:
 
   - name: geerlingguy.docker
     src: "https://github.com/geerlingguy/ansible-role-docker"
+
+  - name: geerlingguy.helm
+    src: "https://github.com/geerlingguy/ansible-role-helm"

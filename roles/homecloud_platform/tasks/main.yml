@@ -14,6 +14,11 @@
   tags:
     - kubernetes
 
+- name: ensure dependencies for community.kubernetes.k8s exist
+  pip:
+    name: openshift
+    state: present
+
 - name: ensure namespace for services exists
   community.kubernetes.k8s:
     name: '{{ kubernetes_service_namespace }}'

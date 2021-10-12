@@ -21,14 +21,3 @@
     - homecloud_platform
   tags:
     - homecloud_platform
-
-- name: install website service
-  become: True
-  hosts: homecloud
-  tags:
-    - service
-  roles:
-    - service_web_stateless
-  vars:
-    app_name: webtest
-    deployment_container_image: paulbouwer/hello-kubernetes:1.5

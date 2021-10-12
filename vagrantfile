@@ -27,7 +27,8 @@ Vagrant.configure(2) do |config|
     end
 
     homecloud.vm.provision "ansible" do |ansible|
-      ansible.playbook = 'playbook.homecloud.yml'
+      ansible.playbook = 'playbook.homecloud.platform.yml'
+      ansible.extra_vars = {env: 'dev'}
     end
   end
 end

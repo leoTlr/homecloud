@@ -5,7 +5,7 @@ metadata:
   name: '{{ app_name }}'
   namespace: '{{ app_namespace }}'
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 8080

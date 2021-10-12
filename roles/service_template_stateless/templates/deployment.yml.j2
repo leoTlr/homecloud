@@ -5,7 +5,7 @@ metadata:
   name: '{{ app_name }}'
   namespace: '{{ app_namespace }}'
 spec:
-  replicas: '{{ deployment_replicas }}'
+  replicas: {{ deployment_replicas }}
   selector:
     matchLabels:
       app: '{{ app_name }}'
@@ -18,4 +18,4 @@ spec:
         - name: '{{ app_name }}'
           image: '{{ deployment_container_image }}'
           ports:
-            - containerPort: '{{ app_port }}'
+            - containerPort: {{ app_port }}

@@ -11,4 +11,6 @@
   vars:
     homecloud_fqdn: homecloud.test
     app_name: webtest
+    app_port: 8080
+    host_port: 80
     deployment_container_image: paulbouwer/hello-kubernetes:1.5

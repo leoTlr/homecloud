@@ -14,3 +14,4 @@
   with_items:
     - service
     - deployment
+    - ingress

@@ -10,7 +10,7 @@
   community.kubernetes.k8s:
     state: '{{ app_state }}'
     wait: true
-    template: '{{ item }}_web.yml.j2'
+    template: '{{ item }}.yml.j2'
   with_items:
     - service
     - deployment

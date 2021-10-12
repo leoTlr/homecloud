@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ app_name }}
-  namespace: {{ deployment_namespace }}
+  namespace: {{ app_namespace }}
 spec:
   replicas: {{ deployment_replicas }}
   selector:

@@ -18,4 +18,4 @@ spec:
         - name: '{{ app_name }}'
           image: '{{ deployment_container_image }}'
           ports:
-            - containerPort: 8080
+            - containerPort: '{{ app_port }}'

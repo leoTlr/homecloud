@@ -1,9 +1,7 @@
 ---
 # defaults file for service_web
 
-app_name: hello-k8s
 app_state: present
 app_namespace: homecloud-services
 
 deployment_replicas: 1
-deployment_container_image: paulbouwer/hello-kubernetes:1.5

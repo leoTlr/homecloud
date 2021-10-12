@@ -2,6 +2,4 @@
 # defaults file for service_web
 
 app_state: present
-app_namespace: homecloud-services
-
 deployment_replicas: 1

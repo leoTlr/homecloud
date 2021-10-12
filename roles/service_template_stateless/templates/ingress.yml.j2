@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: '{{ app_name }}'
-  namespace: '{{ app_namespace }}'
+  namespace: '{{ homecloud_service_namespace }}'
 spec:
   rules:
   - host: '{{ app_name }}.{{ homecloud_fqdn }}'

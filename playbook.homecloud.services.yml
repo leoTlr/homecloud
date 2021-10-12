@@ -8,6 +8,8 @@
     - service_web
   roles:
     - service_template_stateless
+  vars_files:
+    - 'settings_{{ env }}.yml'
   vars:
     homecloud_fqdn: homecloud.test
     app_name: webtest

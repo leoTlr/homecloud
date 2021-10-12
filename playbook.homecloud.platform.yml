@@ -2,6 +2,9 @@
 - hosts: homecloud
   become: true
 
+  vars_files:
+    - 'settings_{{ env }}.yml'
+
   pre_tasks:
     - name: Update apt cache if needed
       apt: update_cache=True cache_valid_time=3600

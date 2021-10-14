@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
     # using libvirt provider requires vagrant-libvirtd plugin
     homecloud.vagrant.plugins = ["vagrant-libvirt"]
     homecloud.vm.provider :libvirt do |vm|
-      vm.cpus=4
+      vm.cpus=6
       vm.memory=4096
       vm.default_prefix="test_"
       

@@ -10,6 +10,10 @@
 - name: ensure container engine is installed
   import_role:
     name: geerlingguy.docker
+  vars:
+    docker_daemon_options:
+      exec-opts: ['native.cgroupdriver={{ cgroup_driver }}']
+      storage-driver: 'overlay2'
   tags:
     - container_engine
     - docker

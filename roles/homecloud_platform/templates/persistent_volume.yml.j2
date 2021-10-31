@@ -12,7 +12,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: '{{ homecloud_service_volume_dir }}'
+    path: '{{ service_volume_name }}'
   nodeAffinity:
     required:
       nodeSelectorTerms:

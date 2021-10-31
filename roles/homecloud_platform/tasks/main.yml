@@ -31,3 +31,8 @@
     name: geerlingguy.helm
   tags:
     - helm
+
+- name: ensure storage is prepared
+  import_tasks: storage.yml
+  tags:
+    - storage

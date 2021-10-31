@@ -1,0 +1,26 @@
+---
+- name: ensure volumes directory exists
+  ansible.builtin.file:
+    path: '{{ homecloud_service_volume_dir }}'
+    state: directory
+    mode: '0700'
+
+- name: ensure StorageClass ist created
+  community.kubernetes.k8s:
+    state: present
+    definition:
+      kind: StorageClass
+      apiVersion: storage.k8s.io/v1
+      metadata:
+        name: local-storage
+      provisioner: kubernetes.io/no-provisioner
+      volumeBindingMode: WaitForFirstConsumer
+
+- name: ensure PersistentVolume is created
+  community.kubernetes.k8s:
+    state: present
+    wait: true
+    template: '{{ item }}'
+    namespace: '{{ ingress_nginx_namespace }}'
+  with_items:
+    - persistent_volume.yml.j2

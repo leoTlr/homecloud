@@ -1,0 +1,26 @@
+---
+
+- name: ensure required kernel modules are loaded
+  community.general.modprobe:
+    state: present
+    name: '{{ item }}'
+  with_items: '{{ kernel_modules }}'
+
+- name: ensure required kernel modules are persisted between boots
+  ansible.builtin.lineinfile:
+    path: /etc/modules-load.d/container.conf
+    create: true
+    mode: 0600
+    search_string: '{{ item }}'
+    value: '{{ item }}'
+    state: present
+  with_items: '{{ kernel_modules }}'
+
+- name: ensure kernel parameters are set
+  ansible.posix.sysctl:
+    state: present
+    sysctl_set: true
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    reload: true
+  with_dict: '{{ kernel_parameters }}'

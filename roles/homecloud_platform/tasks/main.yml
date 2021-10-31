@@ -1,6 +1,12 @@
 ---
 # tasks file for homecloud_kubernetes
 
+- name: ensure kernel is set up correctly
+  import_tasks: kernel.yml
+  tags:
+    - kernel
+
+# vars required for docker: https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker
 - name: ensure container engine is installed
   import_role:
     name: geerlingguy.docker

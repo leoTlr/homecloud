@@ -3,14 +3,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: '{{ app_name }}'
-  namespace: '{{ homecloud_service_namespace }}'
+  namespace: '{{ service_namespace }}'
 spec:
   tls:
     - hosts:
         - '{{ app_name }}.{{ homecloud_fqdn }}'
       secretName: 'tls-{{ app_name }}'
   rules:
-  - host: '{{ app_name }}.{{ homecloud_fqdn }}'
+  - host: '{{ app_name }}.{{ fqdn }}'
     http:
       paths:
       - pathType: Prefix

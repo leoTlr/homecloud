@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: '{{ app_name }}'
-  namespace: '{{ homecloud_service_namespace }}'
+  namespace: '{{ service_namespace }}'
 spec:
   replicas: {{ deployment_replicas }}
   selector:

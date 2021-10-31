@@ -7,10 +7,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - '{{ app_name }}.{{ homecloud_fqdn }}'
+        - '{{ app_fqdn }}'
       secretName: 'tls-{{ app_name }}'
   rules:
-  - host: '{{ app_name }}.{{ fqdn }}'
+  - host: '{{ app_fqdn }}'
     http:
       paths:
       - pathType: Prefix

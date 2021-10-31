@@ -7,3 +7,5 @@ master_node_ip: 192.168.60.2
 homecloud_service_namespace: homecloud-services
 homecloud_ingress_namespace: homecloud-ingress
 homecloud_service_volume_dir: /data/volumes
+homecloud_service_volume_name: hc-local-pv
+homecloud_service_volume_claim_name: hc-local-pvc

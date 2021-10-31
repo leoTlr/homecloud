@@ -3,5 +3,5 @@
 
 app_state: present
 app_fqdn: '{{ app_name }}.{{ homecloud_fqdn }}'
-service_namespace: '{{ homelcoud_service_namespace }}'
+service_namespace: '{{ homecloud_service_namespace }}'
 deployment_replicas: 1

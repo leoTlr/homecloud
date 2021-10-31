@@ -21,6 +21,6 @@
     state: present
     wait: true
     template: '{{ item }}'
-    namespace: '{{ ingress_nginx_namespace }}'
+    namespace: '{{ homecloud_services_namespace }}'
   with_items:
     - persistent_volume.yml.j2

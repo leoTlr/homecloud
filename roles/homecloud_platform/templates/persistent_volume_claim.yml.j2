@@ -1,0 +1,13 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: '{{ service_volume_claim_name }}'
+  namespace: '{{ homecloud_service_namespace }}'
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: '{{ service_volume_claim_size }}'

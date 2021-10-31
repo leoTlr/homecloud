@@ -26,3 +26,8 @@
     kind: Namespace
     state: present
 
+- name: ensure helm is installed
+  import_role: 
+    name: geerlingguy.helm
+  tags:
+    - helm

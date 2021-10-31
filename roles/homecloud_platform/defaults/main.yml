@@ -18,5 +18,6 @@ ingress_nginx_namespace: ingress-nginx
 
 service_volume_name: '{{ homecloud_service_volume_name }}'
 service_volume_path: '{{ homecloud_service_volume_dir }}'
-service_volume_claim_name: '{{ homelcoud_service_volume_claim_name }}'
+service_volume_claim_name: '{{ homecloud_service_volume_claim_name }}'
+service_volume_claim_namespace: '{{ homecloud_service_namespace }}'
 service_volume_claim_size: 5Gi

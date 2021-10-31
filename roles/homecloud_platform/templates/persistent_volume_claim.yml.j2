@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: '{{ service_volume_claim_name }}'
-  namespace: '{{ homecloud_service_namespace }}'
+  namespace: '{{ service_volume_claim_namespace }}'
 spec:
   accessModes:
     - ReadWriteMany

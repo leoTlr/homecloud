@@ -1,0 +1,9 @@
+---
+
+platform_env: dev
+homecloud_hostname: homelab
+homecloud_fqdn: homelab.test
+master_node_ip: 192.168.60.2
+homecloud_service_namespace: homecloud-services
+homecloud_ingress_namespace: homecloud-ingress
+homecloud_service_volume_dir: /data/volumes

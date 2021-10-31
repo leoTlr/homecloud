@@ -7,7 +7,7 @@
     - service
     - service_web
   roles:
-    - service_template_stateless
+    - service_template
   vars_files:
     - 'settings_{{ env }}.yml'
   vars:

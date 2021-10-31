@@ -16,7 +16,7 @@ ingress_nginx_version: 'v1.0.4'
 ingress_nginx_url: 'https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-{{ ingress_nginx_version }}/deploy/static/provider/baremetal/deploy.yaml'
 ingress_nginx_namespace: ingress-nginx
 
-service_volume_name: hc-services-pv
+service_volume_name: '{{ homecloud_service_volume_name }}'
 service_volume_path: '{{ homecloud_service_volume_dir }}'
 service_volume_claim_name: '{{ homelcoud_service_volume_claim_name }}'
 service_volume_claim_size: 5Gi

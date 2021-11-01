@@ -1,0 +1,26 @@
+---
+
+- name: ensure ingress namespace exists
+  community.kubernetes.k8s:
+    name: '{{ item  }}'
+    api_version: v1
+    kind: Namespace
+    state: present
+  with_items:
+    - '{{ ingress_nginx_namespace }}'
+
+- name: install ingress-nginx {{ ingress_nginx_version }}
+  command: 'kubectl apply -f {{ ingress_nginx_url }}'
+  register: ingress_nginx_init
+  changed_when: '"created" in ingress_nginx_init.stdout'
+
+# applies spec.externalIPs
+# otherwise it would stay in pending state as type LoadBalancer forever
+- name: Install Service for ingress-nginx
+  community.kubernetes.k8s:
+    state: present
+    wait: true
+    template: '{{ item }}'
+    namespace: '{{ ingress_nginx_namespace }}'
+  with_items:
+    - nginx_service.yml.j2

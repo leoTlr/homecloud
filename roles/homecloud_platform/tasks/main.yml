@@ -65,3 +65,8 @@
   tags:
     - cert_manager
   when: platform_env == 'prod'
+
+- name: ensure ingress is installed
+  import_tasks: ingress.yml
+  tags:
+    - ingress

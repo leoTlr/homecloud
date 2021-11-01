@@ -30,6 +30,13 @@
   tags:
     - kubernetes
 
+# i.e. used for webhooks 
+- name: ensure master-local pods can communicate with api-server
+  community.general.ufw:
+    # == "ufw allow in on cni0" 
+    rule: allow
+    interface_in: cni0
+
 - name: ensure dependencies for community.kubernetes.k8s exist
   pip:
     name: openshift

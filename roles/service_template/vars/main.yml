@@ -1,0 +1,2 @@
+---
+deployment_file: '{{ persistence_enabled | ternary("deployment_stateful", "deployment")}}'

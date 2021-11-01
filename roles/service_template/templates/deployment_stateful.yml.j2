@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ app_name }}'
+  namespace: '{{ service_namespace }}'
+spec:
+  replicas: {{ deployment_replicas }}
+  selector:
+    matchLabels:
+      app: '{{ app_name }}'
+  template:
+    metadata:
+      labels:
+        app: '{{ app_name }}'
+    spec:
+      containers:
+        - name: '{{ app_name }}'
+          image: '{{ deployment_container_image }}'
+          ports:
+            - containerPort: {{ app_port }}
+          volumeMounts:
+            - name: '{{ service_pv_name }}'
+              mountPath: /data
+              subPath: '{{ app_name }}'
+      volumes:
+        - name: '{{ service_pv_name }}'
+          persistentVolumeClaim:
+            claimName: '{{ service_pvc_name }}'
+        

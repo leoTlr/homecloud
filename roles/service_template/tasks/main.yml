@@ -13,5 +13,5 @@
     template: '{{ item }}.yml.j2'
   with_items:
     - service
-    - deployment
+    - '{{ deployment_file }}'
     - ingress

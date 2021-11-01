@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: '{{ app_name }}'
   namespace: '{{ service_namespace }}'
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
     - hosts:

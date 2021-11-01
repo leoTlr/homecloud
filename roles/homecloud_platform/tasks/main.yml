@@ -52,3 +52,9 @@
   import_tasks: storage.yml
   tags:
     - storage
+
+- name: ensure cert-manager is installed
+  import_tasks: cert_manager.yml
+  tags:
+    - cert_manager
+  when: platform_env == 'prod'

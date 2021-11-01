@@ -22,6 +22,8 @@
   import_role:
     name: geerlingguy.kubernetes
   vars:
+    kubernetes_role: master
+    kubernetes_allow_pods_on_master: true
     kubernetes_config_kubelet_configuration:
       cgroupDriver: '{{ cgroup_driver }}'
     #kubernetes_apiserver_advertise_address: '192.168.60.2'

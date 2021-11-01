@@ -7,7 +7,7 @@ metadata:
     name: '{{ service_volume_name }}'
 spec:
   capacity:
-    storage: 10Gi
+    storage: '{{ service_volume_size }}'
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce

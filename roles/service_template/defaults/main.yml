@@ -9,3 +9,4 @@ deployment_container_image: '{{ container_image }}'
 persistence_enabled: False
 service_pv_name: '{{ homecloud_service_volume_name }}'
 service_pvc_name: '{{ homecloud_service_volume_claim_name }}'
+container_mount_path: /data

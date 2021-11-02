@@ -5,6 +5,7 @@ app_state: present
 app_subdomain: '{{ app_name }}'
 service_namespace: '{{ homecloud_service_namespace }}'
 deployment_replicas: 1
+deployment_container_image: '{{ container_image }}'
 persistence_enabled: False
 service_pv_name: '{{ homecloud_service_volume_name }}'
 service_pvc_name: '{{ homecloud_service_volume_claim_name }}'

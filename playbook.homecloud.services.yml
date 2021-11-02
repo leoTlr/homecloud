@@ -1,6 +1,6 @@
 ---
 
-- name: install website service
+- name: install example service
   become: True
   hosts: homecloud
   tags:
@@ -11,8 +11,8 @@
   vars_files:
     - 'settings_{{ env }}.yml'
   vars:
-    homecloud_fqdn: homecloud.test
     app_name: webtest
+    app_state: present
     app_port: 8080
     host_port: 80
-    deployment_container_image: paulbouwer/hello-kubernetes:1.5
+    container_image: paulbouwer/hello-kubernetes:1.5

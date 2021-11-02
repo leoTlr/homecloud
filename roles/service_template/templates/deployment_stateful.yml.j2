@@ -14,11 +14,13 @@ spec:
       labels:
         app: '{{ app_name }}'
     spec:
+      securityContext: {{ pod_security_ctx }}
       containers:
         - name: '{{ app_name }}'
           image: '{{ deployment_container_image }}'
           ports:
             - containerPort: {{ app_port }}
+          securityContext: {{ container_security_ctx }}
           volumeMounts:
             - name: '{{ service_pv_name }}'
               mountPath: '{{ container_mount_path }}'

@@ -20,6 +20,8 @@ spec:
           image: '{{ deployment_container_image }}'
           ports:
             - containerPort: {{ app_port }}
+          command: {{ container_entrypoint }}
+          args: {{ container_args }}
           securityContext: {{ container_security_ctx }}
           volumeMounts:
             - name: '{{ service_pv_name }}'

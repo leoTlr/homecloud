@@ -21,4 +21,5 @@ spec:
           ports:
             - containerPort: {{ app_port }}
           command: {{ container_entrypoint }}
+          args: {{ container_args }}
           securityContext: {{ container_security_ctx }}

@@ -10,6 +10,7 @@ _pod_sec_ctx:
     privileged: false
     runAsNonRoot: true
     allowPrivilegeEscalation: false
+    capabilities: '{{ app_capabilities }}'
 
 # same as in PodSpec, but overwrites def at Pod level
 _container_sec_ctx: '{{ _pod_sec_ctx }}'

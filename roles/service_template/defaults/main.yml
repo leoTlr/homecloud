@@ -3,6 +3,9 @@
 
 app_state: present
 app_subdomain: '{{ app_name }}'
+app_capabilities:
+  drop: ['all']
+  add: []
 service_namespace: '{{ homecloud_service_namespace }}'
 deployment_replicas: 1
 deployment_container_image: '{{ container_image }}'

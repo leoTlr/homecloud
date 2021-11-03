@@ -14,7 +14,7 @@ spec:
       labels:
         app: '{{ app_name }}'
     spec:
-      securityContext: {{ pod_security_ctx }}
+      securityContext: {{ pod_sec_ctx }}
       containers:
         - name: '{{ app_name }}'
           image: '{{ deployment_container_image }}'
@@ -22,7 +22,7 @@ spec:
             - containerPort: {{ app_port }}
           command: {{ container_entrypoint }}
           args: {{ container_args }}
-          securityContext: {{ container_security_ctx }}
+          securityContext: {{ container_sec_ctx }}
           volumeMounts:
             - name: '{{ service_pv_name }}'
               mountPath: '{{ container_mount_path }}'

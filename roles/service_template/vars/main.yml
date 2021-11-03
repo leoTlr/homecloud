@@ -2,20 +2,17 @@
 app_fqdn: '{{ app_name }}.{{ homecloud_fqdn }}'
 deployment_file: '{{ persistence_enabled | ternary("deployment_stateful", "deployment")}}'
 
-pod_security_ctx_default:
-  securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
-    privileged: false
-    runAsNonRoot: true
 
-container_security_ctx_default:
+_pod_sec_ctx:
   securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
+    runAsUser: 10000
+    runAsGroup: 10000
     privileged: false
     runAsNonRoot: true
     allowPrivilegeEscalation: false
 
-pod_security_ctx: '{{ pod_security_ctx_default | from_yaml }}'
-container_security_ctx: '{{ container_security_ctx_default | from_yaml }}'
+# same as in PodSpec, but overwrites def at Pod level
+_container_sec_ctx: '{{ _pod_sec_ctx }}'
+
+pod_sec_ctx: '{{ _pod_sec_ctx.securityContext | from_yaml }}'
+container_sec_ctx: '{{ _container_sec_ctx.securityContext | from_yaml }}'

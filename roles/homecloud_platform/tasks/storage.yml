@@ -15,7 +15,6 @@
         name: local-storage
       provisioner: kubernetes.io/no-provisioner
       volumeBindingMode: WaitForFirstConsumer
-      reclaimPolicy: Retain
 
 - name: Ensure Service Volume is avaliable
   community.kubernetes.k8s:

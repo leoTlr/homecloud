@@ -6,7 +6,7 @@
     name: openshift
     state: present
 
-- name: Create {{ app_name }} and wait until it is ready.
+- name: Ensure {{ app_name }} is {{ app_state }}
   community.kubernetes.k8s:
     state: '{{ app_state }}'
     wait: true

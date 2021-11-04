@@ -25,9 +25,6 @@ Vagrant.configure(2) do |config|
       vm.cpus=6
       vm.memory=4096
       vm.default_prefix="test_"
-      
-      # disk for persistent pod volumes
-      vm.storage :file, :size => '10G'
     end
 
     homecloud.vm.provision "ansible" do |ansible|

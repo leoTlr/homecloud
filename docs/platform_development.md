@@ -9,6 +9,7 @@
 - cd into project root path
 - `ansible-galaxy install --role-file ansible_galaxy_requirements.yml`
     - some ansible roles used from ansible galaxy
+- put settings in `settings_dev.yml`
 - `vagrant up --no-provision`
     - creates dev vm
     - without `--no-provision` it would begin to run the ansible scripts and destroy the vm again in case of some error
